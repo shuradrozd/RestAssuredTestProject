@@ -29,7 +29,8 @@ stage ('Build') {
                                 jdk: '',
                                 properties: [],
                                 reportBuildPolicy: 'ALWAYS',
-                                results: [[path: '${JENKINS_HOME}/workspace/pipeAPI/target/allure-results']]
+//                                 results: [[path: '${JENKINS_HOME}/workspace/pipeAPI/target/allure-results']]
+                                results: [[path: 'target/allure-results']]
                             ])
                         }
                      }
