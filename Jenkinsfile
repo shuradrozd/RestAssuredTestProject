@@ -21,36 +21,19 @@ stage ('Build') {
                  sh 'mvn clean test'
 //                 echo 'test'
             }
-//                         post {
-//                             // If Maven was able to run the tests, even if some of the test
-//                             // failed, record the test results and archive the jar file.
-//                             success { allure([
-//                                 includeProperties: true,
-//                                 jdk: '',
-//                                 properties: [],
-//                                 reportBuildPolicy: 'ALWAYS',
-//                                 results: [[path: '${JENKINS_HOME}/workspace/PipelineSRM/target/allure-results']]
-//                             ])
-//                         }
-//                      }
-post {
+                        post {
+                            // If Maven was able to run the tests, even if some of the test
+                            // failed, record the test results and archive the jar file.
+                            success { allure([
+                                includeProperties: true,
+                                jdk: '',
+                                properties: [],
+                                reportBuildPolicy: 'ALWAYS',
+                                results: [[path: '${JENKINS_HOME}/workspace/pipeAPI/target/allure-results']]
+                            ])
+                        }
+                     }
 
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
-                success {
-                        cucumber buildStatus: 'null',
-                        customCssFiles: '',
-                        customJsFiles: '',
-                        failedFeaturesNumber: -1,
-                        failedScenariosNumber: -1,
-                        failedStepsNumber: -1,
-                        fileIncludePattern: '**/*.json',
-                        pendingStepsNumber: -1,
-                        skippedStepsNumber: -1,
-                        sortingMethod: 'ALPHABETICAL',
-                        undefinedStepsNumber: -1
-                }
-            }
                 }
             }
             }
