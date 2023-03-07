@@ -9,7 +9,7 @@ import static org.testng.Assert.assertEquals;
 
 public class TestExample extends RootClass {
 
-    @Test
+    @Test(description = "Проверка получения email у пользователей")
     public void testStart() {
 
 
